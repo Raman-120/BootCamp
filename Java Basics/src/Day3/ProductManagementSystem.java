@@ -73,13 +73,15 @@ public class ProductManagementSystem {
                         System.out.println(product);
                     }
 
+
                     // view all products of clothing category
-                    System.out.println("******************");
                     i = clothing.iterator();
                     while (i.hasNext()){
                         product = i.next();
                         System.out.println(product);
                     }
+
+                    System.out.println("******************");
 
                 }
 
@@ -161,6 +163,8 @@ public class ProductManagementSystem {
                                 product.setName(productName);
                                 product.setPrice(productPrice);
                                 product.setQuantity(productQuantity);
+
+                                System.out.println("Product information updated successfully");
 
                                 break;
 
@@ -258,13 +262,48 @@ public class ProductManagementSystem {
 
                 case 6 -> {
                     System.out.print("Enter the product category: ");
+                    String productCategory = scanner.nextLine();
+
+                    System.out.print("Enter the product name: ");
+                    String productName = scanner.nextLine();
+
+                    boolean found = false;
+                    if(productCategory.equals("electronics")){
+
+                        i = electronics.iterator();
+                        while (i.hasNext()){
+                            product = i.next();
+                            if(productName.equals(product.getName())){
+                                System.out.println(product);
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    else if(productCategory.equals("clothing")){
+                        i = clothing.iterator();
+                        while (i.hasNext()){
+                            product = i.next();
+                            if(productName.equals(product.getName())){
+                                System.out.println(product);
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    else{
+                        System.out.println("This category isn't available at the moment.");
+                    }
+
                 }
+
+                case 7 -> System.out.println("Exiting...\nThanks for using our service.");
+
 
                 default -> System.out.println("Please choose a valid option.");
             }
-
-
         }while (choice != 7);
 
+        scanner.close();
     }
 }
