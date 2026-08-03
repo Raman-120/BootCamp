@@ -36,15 +36,16 @@ public class ProductManagementSystem {
 
             switch (choice){
                 case 1 -> {
+
+                    System.out.print("Enter the product Category: ");
+                    String productCategory = scanner.nextLine().toLowerCase();
+
                     System.out.print("Enter the product ID: ");
                     int productId = scanner.nextInt();
                     scanner.nextLine();
 
                     System.out.print("Enter the product name: ");
                     String productName = scanner.nextLine();
-
-                    System.out.print("Enter the product Category: ");
-                    String productCategory = scanner.nextLine().toLowerCase();
 
                     System.out.print("Enter the product price: ");
                     double productPrice = scanner.nextDouble();
@@ -87,6 +88,7 @@ public class ProductManagementSystem {
 
 
                 case 3 -> {
+
                     System.out.print("Enter the productID: ");
                     int productId = scanner.nextInt();
                     scanner.nextLine();
