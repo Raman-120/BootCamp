@@ -80,6 +80,49 @@ public class ProductManagementSystem {
                     }
 
                 }
+
+
+                case 3 -> {
+                    System.out.print("Enter the productID: ");
+                    int productId = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter the product category: ");
+                    String productCategory = scanner.nextLine().toLowerCase();
+
+                    boolean found = false;
+                    if(productCategory.equals("electronics")){
+                        i = electronics.iterator();
+                        while (i.hasNext()){
+                            product = i.next();
+                            if(productId == product.getProductId()){
+                                System.out.println(product);
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    else if(productCategory.equals("clothing")){
+                        i = clothing.iterator();
+                        while (i.hasNext()){
+                            product = i.next();
+                            if(productId == product.getProductId()){
+                                System.out.println(product);
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    else{
+                        System.out.println("This category isn't available at the moment.");
+                    }
+
+                    if(!found){
+                        System.out.println("Product not found.");
+                    }
+
+                }
+
                 default -> System.out.println("Please choose a valid option.");
             }
 
