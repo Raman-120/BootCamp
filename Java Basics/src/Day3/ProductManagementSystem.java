@@ -60,6 +60,8 @@ public class ProductManagementSystem {
                     else{
                         clothing.add(new Product(productId, productName,productCategory, productPrice, productQuantity));
                     }
+
+                    System.out.println("Product added successfully");
                 }
 
                 case 2 -> {
@@ -124,12 +126,13 @@ public class ProductManagementSystem {
                 }
 
                 case 4 -> {
-                    System.out.print("Enter the productId: ");
-                    int productId = scanner.nextInt();
-                    scanner.nextLine();
 
                     System.out.print("Enter the category: ");
                     String productCategory = scanner.nextLine().toLowerCase();
+
+                    System.out.print("Enter the productId: ");
+                    int productId = scanner.nextInt();
+                    scanner.nextLine();
 
                     boolean found = false;
 
@@ -192,6 +195,8 @@ public class ProductManagementSystem {
                                 product.setPrice(productPrice);
                                 product.setQuantity(productQuantity);
 
+
+                                System.out.println("Product information updated successfully");
                                 break;
 
                             }
@@ -205,7 +210,54 @@ public class ProductManagementSystem {
                         System.out.println("Product isn't available at the moment.");
                     }
 
+                }
 
+                case 5 -> {
+                    System.out.print("Enter the product category: ");
+                    String productCategory = scanner.nextLine().toLowerCase();
+
+                    System.out.print("Enter the product Id: ");
+                    int productId = scanner.nextInt();
+                    scanner.nextLine();
+
+                    boolean found = false;
+                    if(productCategory.equals("electronics")){
+                        i = electronics.iterator();
+                        while (i.hasNext()){
+                            product = i.next();
+                            if(productId == product.getProductId()){
+                                i.remove();
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    else if (productCategory.equals("clothing")){
+                        i = clothing.iterator();
+                        while (i.hasNext()){
+                            product = i.next();
+                            if(productId == product.getProductId()){
+                                i.remove();
+                                System.out.println("Product removed successfully.");
+                                found = true;
+                                break;
+                            }
+                        }
+
+                    }
+                    else{
+                        System.out.println("This category isn't available at the moment");
+                    }
+
+                    if(!found){
+                        System.out.println("Product isn't available at the moment");
+                    }
+
+                }
+
+
+                case 6 -> {
+                    System.out.print("Enter the product category: ");
                 }
 
                 default -> System.out.println("Please choose a valid option.");
