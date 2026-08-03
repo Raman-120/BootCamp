@@ -36,7 +36,11 @@ public class Product {
         return this.quantity;
     }
 
-    public void getName(String name){
+    public void setProductId(int Id){
+        this.id = id;
+    }
+
+    public void setName(String name){
         this.name = name;
     }
 

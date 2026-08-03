@@ -118,8 +118,93 @@ public class ProductManagementSystem {
                     }
 
                     if(!found){
-                        System.out.println("Product not found.");
+                        System.out.println("Product isn't available at the moment.");
                     }
+
+                }
+
+                case 4 -> {
+                    System.out.print("Enter the productId: ");
+                    int productId = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter the category: ");
+                    String productCategory = scanner.nextLine().toLowerCase();
+
+                    boolean found = false;
+
+                    if(productCategory.equals("electronics")){
+                        i = electronics.iterator();
+                        while (i.hasNext()){
+                            product = i.next();
+                            if(productId == product.getProductId()){
+                                System.out.print("Enter the new productId: ");
+                                int newProductId = scanner.nextInt();
+                                scanner.nextLine();
+
+                                System.out.print("Enter the new product name: ");
+                                String productName = scanner.nextLine();
+
+                                System.out.print("Enter the new price: ");
+                                double productPrice = scanner.nextDouble();
+                                scanner.nextLine();
+
+                                System.out.print("Enter the new Quantity: ");
+                                int productQuantity = scanner.nextInt();
+                                scanner.nextLine();
+
+                                found = true;
+                                product.setProductId(newProductId);
+                                product.setName(productName);
+                                product.setPrice(productPrice);
+                                product.setQuantity(productQuantity);
+
+                                break;
+
+                            }
+
+                        }
+                    }
+
+                    else if(productCategory.equals("clothing")){
+                        i = clothing.iterator();
+                        while (i.hasNext()){
+                            product = i.next();
+                            if(productId == product.getProductId()) {
+                                System.out.print("Enter the new productId: ");
+                                int newProductId = scanner.nextInt();
+                                scanner.nextLine();
+
+                                System.out.print("Enter the new product name: ");
+                                String productName = scanner.nextLine();
+
+                                System.out.print("Enter the new price: ");
+                                double productPrice = scanner.nextDouble();
+                                scanner.nextLine();
+
+                                System.out.print("Enter the new Quantity: ");
+                                int productQuantity = scanner.nextInt();
+                                scanner.nextLine();
+
+                                found = true;
+                                product.setProductId(newProductId);
+                                product.setName(productName);
+                                product.setPrice(productPrice);
+                                product.setQuantity(productQuantity);
+
+                                break;
+
+                            }
+                        }
+                    }
+                    else{
+                        System.out.println("This category isn't available at the moment");
+                    }
+
+                    if(!found){
+                        System.out.println("Product isn't available at the moment.");
+                    }
+
 
                 }
 
