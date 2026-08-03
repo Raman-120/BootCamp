@@ -1,3 +1,5 @@
+package Day2;
+
 import java.util.Scanner;
 
 public class SimpleStudentManagementSystem {
@@ -13,10 +15,12 @@ public class SimpleStudentManagementSystem {
         StudentManagement studentManagement = new StudentManagement();
 
         do{
+            System.out.println("********************");
             System.out.println("1. Add a Student");
             System.out.println("2. Display Students");
             System.out.println("3. Search student");
             System.out.println("4. Exit");
+            System.out.println("********************");
 
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();

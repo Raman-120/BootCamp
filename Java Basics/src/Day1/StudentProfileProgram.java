@@ -1,3 +1,5 @@
+package Day1;
+
 public class StudentProfileProgram {
     public static void main(String[] args){
 

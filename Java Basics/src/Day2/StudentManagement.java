@@ -1,3 +1,5 @@
+package Day2;
+
 import  java.util.Scanner;
 import java.util.ArrayList;
 
@@ -30,6 +32,7 @@ public class StudentManagement {
 
     public void displayStudent(){
         for(Student student : students){
+            System.out.println("********************");
             System.out.println(student);
         }
     }
@@ -49,7 +52,7 @@ public class StudentManagement {
         }
 
         if(!found){
-            System.out.println("Student not found.");
+            System.out.println(".Student not found.");
         }
 
     }
