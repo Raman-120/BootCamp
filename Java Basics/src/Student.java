@@ -12,7 +12,11 @@ public class Student {
         this.email = email;
         this.age = age;
         this.course = course;
+
     }
 
+    public String toString(){
+        return studentID + " " + name + " " + email + " " + age + " " + course;
+    }
 
 }
