@@ -73,7 +73,7 @@ public class ProductManagementSystem {
                         product = i.next();
                         System.out.println(product);
                     }
-
+                    System.out.println("******************");
 
                     // view all products of clothing category
                     i = clothing.iterator();
