@@ -1,11 +1,13 @@
 package Day3;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import  java.util.Scanner;
 
-public class ProductManagementSystem {
+public class ProductManagementSystem implements Serializable {
+    static File file = new File("Info.ser");
     public static void main(String[] args){
 
         Scanner scanner = new Scanner(System.in);
@@ -305,7 +307,45 @@ public class ProductManagementSystem {
                 default -> System.out.println("Please choose a valid option.");
             }
         }while (choice != 7);
-
         scanner.close();
+    }
+
+    @SuppressWarnings("Unchecked")
+    static void saveUpdatedProduct(){
+        ArrayList<Product> products = loadProduct();
+    }
+
+    @SuppressWarnings("Unchecked")
+    static ArrayList<Product> loadProduct(){
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))){
+            return (ArrayList<Product>) ois.readObject();
+        }
+        catch (FileNotFoundException e){
+            System.out.println("File not found.");
+            return new ArrayList<>();
+        }
+        catch (IOException e ){
+            System.out.println("Cannot read the file");
+            return new ArrayList<>();
+        }
+        catch (Exception e){
+            System.out.println("Error : " + e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
+    static void saveProduct(ArrayList<Product> products){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))){
+            oos.writeObject(products);
+        }
+        catch (FileNotFoundException e){
+            System.out.println("File not found.");
+        }
+        catch (IOException e){
+            System.out.println("Cannot write on the file");
+        }
+        catch (Exception e){
+            System.out.println("Error: "  + e.getMessage());
+        }
     }
 }
