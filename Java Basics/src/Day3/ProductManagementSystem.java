@@ -531,5 +531,4 @@ public class ProductManagementSystem implements Serializable {
             System.out.println("Error: "  + e.getMessage());
         }
     }
-
 }
